@@ -81,7 +81,7 @@ function App() {
     setResultPageShow(false);
     setCurrentQuestionNumber(0);
     setQuestionPageShow(false);
-    setNextBtnDisable(false);
+    setNextBtnDisable("true");
     setHideNextBtn(false);
     setHideFinishBtn(true);
     setScore(0);

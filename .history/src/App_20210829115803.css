@@ -1,0 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap");
+
+.App {
+  height: 100vh;
+}
+
+<button type="button" className="App-start-btn btn btn-warning btn-lg d-block mx-auto py-3 px-5 fs-3">Start</button>
+

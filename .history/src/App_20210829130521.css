@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap");
+
+.App {
+  height: 100vh;
+}
+
+.App-start-btn {
+  transition: 0.5s ease-in-out;
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -ms-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+}
+
+.App-start-btn:hover {
+  animation: up-down 0.5s;
+  -webkit-animation: up-down 3s 0.5s infinite;
+}
+
+@keyframes up-down {
+  0% {
+    transform: translateY(-5px);
+    -webkit-transform: translateY(-5px);
+    -moz-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    -o-transform: translateY(-5px);
+  }
+  100%{
+      transform: translatey  ;
+      -webkit-transform: translatey  ;
+      -moz-transform: translatey  ;
+      -ms-transform: translatey  ;
+      -o-transform: translatey  ;
+}
+}

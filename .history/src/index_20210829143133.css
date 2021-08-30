@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Dela Gothic One", cursive;
+}
+
+body {
+  background-image: url("");
+  background-position: top;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  font-size: 20px;
+  background-color: rgb(50, 50, 83);
+}
+
+/* https://i.ibb.co/Tc6GHRM/2805828.webp */

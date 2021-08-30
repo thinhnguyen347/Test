@@ -37,8 +37,8 @@ function App() {
   }
 
   function checkAnswer(e) {
-    const correctSound = new Howl({ src: correct, volume: 0.3 });
-    const wrongSound = new Howl({ src: wrong, volume: 0.2});
+    const correctSound = new Howl({ src: correct, volume: 0.5 });
+    const wrongSound = new Howl({ src: wrong, volume: 0.});
 
     let current_answer = quiz[currentQuestionNumber].ans;
     let choice = e.target.textContent;

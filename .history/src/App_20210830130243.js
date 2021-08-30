@@ -11,34 +11,34 @@ import { quiz } from "./component/mockdata";
 
 function App() {
   const [currentQuestionNumber, setCurrentQuestionNumber] = useState(0);
-  const [startPageShow, setStartPageShow] = useState(true);
-  const [questionPageShow, setQuestionPageShow] = useState(false);
-  const [resultPageShow, setResultPageShow] = useState(false);
+  const [startPage, setStartPage] = useState(true);
+  const [questionPage, setQuestionPage] = useState(false);
+  const [resultPage, setResultPage] = useState("d-none");
   const [nextBtnDisable, setNextBtnDisable] = useState(true);
-  const [hideNextBtn, setHideNextBtn] = useState(false);
-  const [hideFinishBtn, setHideFinishBtn] = useState(true);
+  const [hideNextBtn, setHideNextBtn] = useState("d-block");
+  const [hideFinishBtn, setHideFinishBtn] = useState("d-none");
   const [choiceBtnDisable, setChoiceBtnDisable] = useState(false);
   const [score, setScore] = useState(0);
   const [message, setMessage] = useState("");
   const current_question = quiz[currentQuestionNumber];
 
-  
+  const bg_sound = new Howl({
+    src: bgsound,
+    loop: true,
+  });
+
+  Howler.volume(0.4);
+
   function pressStart() {
-    const bg_sound = new Howl({
-      src: bgsound,
-      loop: true,
-      volume: 0.2
-    });
-    
     bg_sound.play();
 
-    setStartPageShow(false);
-    setQuestionPageShow(true);
+    setStartPage(false);
+    setQuestionPage(true);
   }
 
   function checkAnswer(e) {
-    const correctSound = new Howl({ src: correct, volume: 0.5 });
-    const wrongSound = new Howl({ src: wrong, volume: 0.5});
+    const correctSound = new Howl({ src: correct });
+    const wrongSound = new Howl({ src: wrong });
 
     let current_answer = quiz[currentQuestionNumber].ans;
     let choice = e.target.textContent;
@@ -51,8 +51,8 @@ function App() {
     }
 
     if (currentQuestionNumber === quiz.length - 1) {
-      setHideNextBtn(true);
-      setHideFinishBtn(false);
+      setHideNextBtn("d-none");
+      setHideFinishBtn("d-block");
     }
 
     setChoiceBtnDisable(true);
@@ -69,21 +69,21 @@ function App() {
   }
 
   function showResultPage() {
-    setQuestionPageShow(false);
-    setResultPageShow("d-block");
+    setQuestionPage(false);
+    setResultPage("d-block");
     score > 0 ? setMessage("Congratulation!") : setMessage("Ohhhhh no!");
   }
 
   function replay() {
     Howler.stop();
 
-    setStartPageShow(true);
-    setResultPageShow("d-none");
+    setStartPage(true);
+    setResultPage("d-none");
     setCurrentQuestionNumber(0);
-    setQuestionPageShow(false);
+    setQuestionPage(false);
     setNextBtnDisable("true");
-    setHideNextBtn(false);
-    setHideFinishBtn(true);
+    setHideNextBtn("d-block");
+    setHideFinishBtn("d-none");
     setScore(0);
     setMessage("");
     setChoiceBtnDisable(false);
@@ -92,7 +92,7 @@ function App() {
   return (
     <div className="App container px-md-2 px-lg-5 w-100 d-flex align-items-center">
       <div
-        className={`container-fluid p-0 ${startPageShow ? "d-block" : "d-none"}`}
+        className={`container-fluid p-0 ${startPage ? "d-block" : "d-none"}`}
       >
         <img
           src={logo}
@@ -108,7 +108,7 @@ function App() {
           Start
         </button>
       </div>
-      <div className={`container-fluid p-0 ${questionPageShow ? "d-block" : "d-none"}`}>
+      <div className={`container-fluid p-0 ${questionPage ? "d-block" : "d-none"}`}>
         <div className={"container-fluid p-0"}>
           <div className="container-fluid pt-5 pb-2 px-0 d-flex justify-content-between fs-5">
             <div className="container-fluid ps-0">
@@ -134,7 +134,7 @@ function App() {
         <div className="container-fluid d-flex justify-content-around my-5 px-lg-5">
           <button
             type="button"
-            className={`${hideNextBtn ? "d-none" : "d-block"} btn btn-primary px-3 px-sm-5 fs-5`}
+            className={`${hideNextBtn} btn btn-primary px-3 px-sm-5 fs-5`}
             onClick={nextQuestion}
             disabled={nextBtnDisable}
           >
@@ -142,14 +142,14 @@ function App() {
           </button>
           <button
             type="button"
-            className={`${hideFinishBtn ? "d-none" : "d-block"} btn btn-danger px-3 px-sm-5 fs-5`}
+            className={`${hideFinishBtn} btn btn-danger px-3 px-sm-5 fs-5`}
             onClick={showResultPage}
           >
             Finish
           </button>
         </div>
       </div>
-      <div className={`container-fluid p-0 ${resultPageShow ? "d-block" : "d-none"}`}>
+      <div className={`container-fluid p-0 ${resultPage}`}>
         <img
           src={logo}
           className="img-fluid d-block mx-auto pb-5"

@@ -15,21 +15,21 @@ function App() {
   const [questionPageShow, setQuestionPageShow] = useState(false);
   const [resultPageShow, setResultPageShow] = useState(false);
   const [nextBtnDisable, setNextBtnDisable] = useState(true);
-  const [hideNextBtn, setHideNextBtn] = useState(false);
-  const [hideFinishBtn, setHideFinishBtn] = useState(true);
+  const [hideNextBtn, setHideNextBtn] = useState("d-block");
+  const [hideFinishBtn, setHideFinishBtn] = useState("d-none");
   const [choiceBtnDisable, setChoiceBtnDisable] = useState(false);
   const [score, setScore] = useState(0);
   const [message, setMessage] = useState("");
   const current_question = quiz[currentQuestionNumber];
 
-  
+  const bg_sound = new Howl({
+    src: bgsound,
+    loop: true,
+  });
+
+  Howler.volume(0.4);
+
   function pressStart() {
-    const bg_sound = new Howl({
-      src: bgsound,
-      loop: true,
-      volume: 0.2
-    });
-    
     bg_sound.play();
 
     setStartPageShow(false);
@@ -37,8 +37,8 @@ function App() {
   }
 
   function checkAnswer(e) {
-    const correctSound = new Howl({ src: correct, volume: 0.5 });
-    const wrongSound = new Howl({ src: wrong, volume: 0.5});
+    const correctSound = new Howl({ src: correct });
+    const wrongSound = new Howl({ src: wrong });
 
     let current_answer = quiz[currentQuestionNumber].ans;
     let choice = e.target.textContent;
@@ -51,8 +51,8 @@ function App() {
     }
 
     if (currentQuestionNumber === quiz.length - 1) {
-      setHideNextBtn(true);
-      setHideFinishBtn(false);
+      setHideNextBtn("d-none");
+      setHideFinishBtn("d-block");
     }
 
     setChoiceBtnDisable(true);
@@ -82,8 +82,8 @@ function App() {
     setCurrentQuestionNumber(0);
     setQuestionPageShow(false);
     setNextBtnDisable("true");
-    setHideNextBtn(false);
-    setHideFinishBtn(true);
+    setHideNextBtn("d-block");
+    setHideFinishBtn("d-none");
     setScore(0);
     setMessage("");
     setChoiceBtnDisable(false);
@@ -134,7 +134,7 @@ function App() {
         <div className="container-fluid d-flex justify-content-around my-5 px-lg-5">
           <button
             type="button"
-            className={`${hideNextBtn ? "d-none" : "d-block"} btn btn-primary px-3 px-sm-5 fs-5`}
+            className={`${hideNextBtn} btn btn-primary px-3 px-sm-5 fs-5`}
             onClick={nextQuestion}
             disabled={nextBtnDisable}
           >
@@ -142,14 +142,14 @@ function App() {
           </button>
           <button
             type="button"
-            className={`${hideFinishBtn ? "d-none" : "d-block"} btn btn-danger px-3 px-sm-5 fs-5`}
+            className={`${hideFinishBtn} btn btn-danger px-3 px-sm-5 fs-5`}
             onClick={showResultPage}
           >
             Finish
           </button>
         </div>
       </div>
-      <div className={`container-fluid p-0 ${resultPageShow ? "d-block" : "d-none"}`}>
+      <div className={`container-fluid p-0 ${resultPageShow ? "d-block" }`}>
         <img
           src={logo}
           className="img-fluid d-block mx-auto pb-5"

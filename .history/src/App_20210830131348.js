@@ -22,14 +22,15 @@ function App() {
   const [message, setMessage] = useState("");
   const current_question = quiz[currentQuestionNumber];
 
-  
+  const bg_sound = new Howl({
+    src: bgsound,
+    loop: true,
+    volume:0.2
+  });
+
+  Howler.volume(0.2);
+
   function pressStart() {
-    const bg_sound = new Howl({
-      src: bgsound,
-      loop: true,
-      volume: 0.2
-    });
-    
     bg_sound.play();
 
     setStartPageShow(false);
@@ -37,8 +38,8 @@ function App() {
   }
 
   function checkAnswer(e) {
-    const correctSound = new Howl({ src: correct, volume: 0.5 });
-    const wrongSound = new Howl({ src: wrong, volume: 0.5});
+    const correctSound = new Howl({ src: correct });
+    const wrongSound = new Howl({ src: wrong });
 
     let current_answer = quiz[currentQuestionNumber].ans;
     let choice = e.target.textContent;

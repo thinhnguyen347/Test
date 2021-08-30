@@ -22,14 +22,13 @@ function App() {
   const [message, setMessage] = useState("");
   const current_question = quiz[currentQuestionNumber];
 
-  
+  const bg_sound = new Howl({
+    src: bgsound,
+    loop: true,
+    volume: 0.2npm deploy
+  });
+
   function pressStart() {
-    const bg_sound = new Howl({
-      src: bgsound,
-      loop: true,
-      volume: 0.2
-    });
-    
     bg_sound.play();
 
     setStartPageShow(false);

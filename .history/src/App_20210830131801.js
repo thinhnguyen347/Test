@@ -29,7 +29,6 @@ function App() {
       loop: true,
       volume: 0.2
     });
-    
     bg_sound.play();
 
     setStartPageShow(false);

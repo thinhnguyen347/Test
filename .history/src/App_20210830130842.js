@@ -16,20 +16,20 @@ function App() {
   const [resultPageShow, setResultPageShow] = useState(false);
   const [nextBtnDisable, setNextBtnDisable] = useState(true);
   const [hideNextBtn, setHideNextBtn] = useState(false);
-  const [hideFinishBtn, setHideFinishBtn] = useState(true);
+  const [hideFinishBtn, setHideFinishBtn] = useState("d-none");
   const [choiceBtnDisable, setChoiceBtnDisable] = useState(false);
   const [score, setScore] = useState(0);
   const [message, setMessage] = useState("");
   const current_question = quiz[currentQuestionNumber];
 
-  
+  const bg_sound = new Howl({
+    src: bgsound,
+    loop: true,
+  });
+
+  Howler.volume(0.4);
+
   function pressStart() {
-    const bg_sound = new Howl({
-      src: bgsound,
-      loop: true,
-      volume: 0.2
-    });
-    
     bg_sound.play();
 
     setStartPageShow(false);
@@ -37,8 +37,8 @@ function App() {
   }
 
   function checkAnswer(e) {
-    const correctSound = new Howl({ src: correct, volume: 0.5 });
-    const wrongSound = new Howl({ src: wrong, volume: 0.5});
+    const correctSound = new Howl({ src: correct });
+    const wrongSound = new Howl({ src: wrong });
 
     let current_answer = quiz[currentQuestionNumber].ans;
     let choice = e.target.textContent;
@@ -52,7 +52,7 @@ function App() {
 
     if (currentQuestionNumber === quiz.length - 1) {
       setHideNextBtn(true);
-      setHideFinishBtn(false);
+      setHideFinishBtn("d-block");
     }
 
     setChoiceBtnDisable(true);
@@ -83,7 +83,7 @@ function App() {
     setQuestionPageShow(false);
     setNextBtnDisable("true");
     setHideNextBtn(false);
-    setHideFinishBtn(true);
+    setHideFinishBtn("d-none");
     setScore(0);
     setMessage("");
     setChoiceBtnDisable(false);
@@ -142,7 +142,7 @@ function App() {
           </button>
           <button
             type="button"
-            className={`${hideFinishBtn ? "d-none" : "d-block"} btn btn-danger px-3 px-sm-5 fs-5`}
+            className={`${hideFinishBtn} btn btn-danger px-3 px-sm-5 fs-5`}
             onClick={showResultPage}
           >
             Finish

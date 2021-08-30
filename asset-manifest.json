@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/quiz-game-reactjs-static/static/css/main.19e6c03b.chunk.css",
-    "main.js": "/quiz-game-reactjs-static/static/js/main.20b20b55.chunk.js",
-    "main.js.map": "/quiz-game-reactjs-static/static/js/main.20b20b55.chunk.js.map",
+    "main.js": "/quiz-game-reactjs-static/static/js/main.17a023b4.chunk.js",
+    "main.js.map": "/quiz-game-reactjs-static/static/js/main.17a023b4.chunk.js.map",
     "runtime-main.js": "/quiz-game-reactjs-static/static/js/runtime-main.a7122699.js",
     "runtime-main.js.map": "/quiz-game-reactjs-static/static/js/runtime-main.a7122699.js.map",
     "static/css/2.818011ed.chunk.css": "/quiz-game-reactjs-static/static/css/2.818011ed.chunk.css",
-    "static/js/2.2ced88b5.chunk.js": "/quiz-game-reactjs-static/static/js/2.2ced88b5.chunk.js",
-    "static/js/2.2ced88b5.chunk.js.map": "/quiz-game-reactjs-static/static/js/2.2ced88b5.chunk.js.map",
+    "static/js/2.5e6be896.chunk.js": "/quiz-game-reactjs-static/static/js/2.5e6be896.chunk.js",
+    "static/js/2.5e6be896.chunk.js.map": "/quiz-game-reactjs-static/static/js/2.5e6be896.chunk.js.map",
     "static/js/3.051dcaf8.chunk.js": "/quiz-game-reactjs-static/static/js/3.051dcaf8.chunk.js",
     "static/js/3.051dcaf8.chunk.js.map": "/quiz-game-reactjs-static/static/js/3.051dcaf8.chunk.js.map",
     "index.html": "/quiz-game-reactjs-static/index.html",
     "static/css/2.818011ed.chunk.css.map": "/quiz-game-reactjs-static/static/css/2.818011ed.chunk.css.map",
     "static/css/main.19e6c03b.chunk.css.map": "/quiz-game-reactjs-static/static/css/main.19e6c03b.chunk.css.map",
-    "static/js/2.2ced88b5.chunk.js.LICENSE.txt": "/quiz-game-reactjs-static/static/js/2.2ced88b5.chunk.js.LICENSE.txt",
+    "static/js/2.5e6be896.chunk.js.LICENSE.txt": "/quiz-game-reactjs-static/static/js/2.5e6be896.chunk.js.LICENSE.txt",
     "static/media/index.css": "/quiz-game-reactjs-static/static/media/bg.935023f8.webp",
-    "static/media/bgsound.7e938517.ogg": "/quiz-game-reactjs-static/static/media/bgsound.7e938517.ogg",
+    "static/media/bgsound.34b48883.ogg": "/quiz-game-reactjs-static/static/media/bgsound.34b48883.ogg",
     "static/media/correct.0481cc18.ogg": "/quiz-game-reactjs-static/static/media/correct.0481cc18.ogg",
     "static/media/textnote.68a26533.gif": "/quiz-game-reactjs-static/static/media/textnote.68a26533.gif",
     "static/media/wrong.a2d6e16f.ogg": "/quiz-game-reactjs-static/static/media/wrong.a2d6e16f.ogg"
@@ -23,8 +23,8 @@
   "entrypoints": [
     "static/js/runtime-main.a7122699.js",
     "static/css/2.818011ed.chunk.css",
-    "static/js/2.2ced88b5.chunk.js",
+    "static/js/2.5e6be896.chunk.js",
     "static/css/main.19e6c03b.chunk.css",
-    "static/js/main.20b20b55.chunk.js"
+    "static/js/main.17a023b4.chunk.js"
   ]
 }

@@ -30,26 +30,27 @@ function App() {
 
   useEffect(() => {
     if (questionPageShow) {
-      timerRef.current = setTimeout(() => {
-        if (currentQuestionNumber === quiz.length - 1) {
-          showResultPage();
-        }
-
-        nextQuestion();
-      }, 5000);
-
-      if (count > 0) {
-        countdown.current = setInterval(() => {
-          setCount((prevCount) => prevCount - 1);
-        }, 1000);
+    timerRef.current = setTimeout(() => {
+      if (currentQuestionNumber === quiz.length - 1) {
+        showResultPage();
       }
+
+      nextQuestion();
+      setCount(5);
+    }, 5000);
+
+    if (count > 0) {
+    countdown.current = setInterval(() => {
+      setCount((prevCount) => prevCount - 1);
+    }, 1000);
+    }
     }
 
     return () => {
       clearTimeout(timerRef.current);
       clearInterval(countdown.current);
     };
-  });
+  }, [currentQuestionNumber]);
 
   function pressStart() {
     const bg_sound = new Howl({
@@ -88,18 +89,15 @@ function App() {
     setNextBtnDisable(false);
   }
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   function nextQuestion() {
     if (currentQuestionNumber < quiz.length - 1) {
       setCurrentQuestionNumber(currentQuestionNumber + 1);
       setChoiceBtnDisable(false);
     }
 
-    setCount(5);
     setNextBtnDisable(true);
   }
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   function showResultPage() {
     clearTimeout(timerRef.current);
 

@@ -49,7 +49,13 @@ function App() {
       clearTimeout(timerRef.current);
       clearInterval(countdown.current);
     };
-  });
+  }, [
+    count,
+    currentQuestionNumber,
+    nextQuestion,
+    questionPageShow,
+    showResultPage,
+  ]);
 
   function pressStart() {
     const bg_sound = new Howl({

@@ -33,9 +33,11 @@ function App() {
       timerRef.current = setTimeout(() => {
         if (currentQuestionNumber === quiz.length - 1) {
           showResultPage();
+          return;
         }
 
         nextQuestion();
+        setCount(5);
       }, 5000);
 
       if (count > 0) {
@@ -70,6 +72,8 @@ function App() {
     let current_answer = quiz[currentQuestionNumber].ans;
     let choice = e.target.value;
 
+    
+
     if (choice === current_answer) {
       correctSound.play();
       setScore(score + 10);
@@ -88,18 +92,15 @@ function App() {
     setNextBtnDisable(false);
   }
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   function nextQuestion() {
     if (currentQuestionNumber < quiz.length - 1) {
       setCurrentQuestionNumber(currentQuestionNumber + 1);
       setChoiceBtnDisable(false);
     }
 
-    setCount(5);
     setNextBtnDisable(true);
   }
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   function showResultPage() {
     clearTimeout(timerRef.current);
 

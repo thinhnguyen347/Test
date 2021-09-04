@@ -36,6 +36,7 @@ function App() {
         }
 
         nextQuestion();
+        
       }, 5000);
 
       if (count > 0) {
@@ -49,7 +50,13 @@ function App() {
       clearTimeout(timerRef.current);
       clearInterval(countdown.current);
     };
-  });
+  }, [
+    count,
+    currentQuestionNumber,
+    nextQuestion,
+    questionPageShow,
+    showResultPage,
+  ]);
 
   function pressStart() {
     const bg_sound = new Howl({
@@ -95,7 +102,6 @@ function App() {
       setChoiceBtnDisable(false);
     }
 
-    setCount(5);
     setNextBtnDisable(true);
   }
 

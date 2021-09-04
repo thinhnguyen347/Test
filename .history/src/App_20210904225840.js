@@ -30,26 +30,27 @@ function App() {
 
   useEffect(() => {
     if (questionPageShow) {
-      timerRef.current = setTimeout(() => {
-        if (currentQuestionNumber === quiz.length - 1) {
-          showResultPage();
-        }
-
-        nextQuestion();
-      }, 5000);
-
-      if (count > 0) {
-        countdown.current = setInterval(() => {
-          setCount((prevCount) => prevCount - 1);
-        }, 1000);
+    timerRef.current = setTimeout(() => {
+      if (currentQuestionNumber === quiz.length - 1) {
+        showResultPage();
       }
+
+      nextQuestion();
+      setCount(5);
+    }, 5000);
+
+    if (count > 0) {
+    countdown.current = setInterval(() => {
+      setCount((prevCount) => prevCount - 1);
+    }, 1000);
+    }
     }
 
     return () => {
       clearTimeout(timerRef.current);
       clearInterval(countdown.current);
     };
-  });
+  }, [count, currentQuestionNumber, nextQuestion, questionPageShow, showResultPage]);
 
   function pressStart() {
     const bg_sound = new Howl({
@@ -95,7 +96,6 @@ function App() {
       setChoiceBtnDisable(false);
     }
 
-    setCount(5);
     setNextBtnDisable(true);
   }
 

@@ -42,10 +42,7 @@ function App() {
         countdown.current = setInterval(() => {
           setCount((prevCount) => prevCount - 1);
         }, 1000);
-      } else {
-        setChoiceBtnDisable(true);
-        setNextBtnDisable(false);
-      }
+      } else {setChoiceBtnDisable(true);}
     }
 
     return () => {

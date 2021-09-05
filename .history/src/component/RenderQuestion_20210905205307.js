@@ -43,9 +43,9 @@ export default function RenderQuestion({
           </div>
           <div className="col d-flex justify-content-center position-relative">
             <div className="mx-md-3 mx-lg-5 my-auto pe-2 position-absolute top-50 end-0 translate-middle fs-3 text-white">
-              {currentAnswer === choices[1] ? (
+              {currentAnswer === choices[0] ? (
                 <BsCheck />
-              ) : clickedChoice === choices[1] ? (
+              ) : clickedChoice === choices[0] ? (
                 <BsX />
               ) : (
                 ""
@@ -69,9 +69,9 @@ export default function RenderQuestion({
           </div>
           <div className="col d-flex justify-content-center position-relative">
             <div className="mx-md-3 mx-lg-5 my-auto pe-2 position-absolute top-50 end-0 translate-middle fs-3 text-white">
-              {currentAnswer === choices[2] ? (
+              {currentAnswer === choices[3] ? (
                 <BsCheck />
-              ) : clickedChoice === choices[2] ? (
+              ) : clickedChoice === choices[3] ? (
                 <BsX />
               ) : (
                 ""

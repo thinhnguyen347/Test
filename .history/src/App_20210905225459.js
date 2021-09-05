@@ -44,7 +44,6 @@ function App() {
         }, 1000);
       } else {
         setChoiceBtnDisable(true);
-        setNextBtnDisable(false);
       }
     }
 

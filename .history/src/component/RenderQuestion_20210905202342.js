@@ -1,4 +1,4 @@
-import { BsCheck, BsX } from "react-icons/bs";
+import { BsCheckCircle } from "react-icons/bs";
 
 export default function RenderQuestion({
   clickedChoice,
@@ -15,16 +15,7 @@ export default function RenderQuestion({
       </div>
       <div className="container-fluid">
         <div className="row row-cols-1 row-cols-md-2 g-3 g-lg-4">
-          <div className="col d-flex justify-content-center position-relative">
-            <div className="mx-md-3 mx-lg-5 my-auto pe-2 position-absolute top-50 end-0 translate-middle fs-3 text-white">
-              {currentAnswer === choices[0] ? (
-                <BsCheck />
-              ) : clickedChoice === choices[0] ? (
-                <BsX />
-              ) : (
-                ""
-              )}
-            </div>
+          <div className="col d-flex justify-content-center">
             <button
               type="button"
               className={`btn btn-warning ${
@@ -40,17 +31,15 @@ export default function RenderQuestion({
             >
               {choices[0]}
             </button>
+            ${
+                currentAnswer === choices[0]
+                  ? `"correct opacity-100"`
+                  : clickedChoice === choices[0]
+                  ? "wrong opacity-100"
+                  : ""
+              }
           </div>
-          <div className="col d-flex justify-content-center position-relative">
-            <div className="mx-md-3 mx-lg-5 my-auto pe-2 position-absolute top-50 end-0 translate-middle fs-3 text-white">
-              {currentAnswer === choices[1] ? (
-                <BsCheck />
-              ) : clickedChoice === choices[1] ? (
-                <BsX />
-              ) : (
-                ""
-              )}
-            </div>
+          <div className="col d-flex justify-content-center">
             <button
               type="button"
               className={`btn btn-warning ${
@@ -67,16 +56,7 @@ export default function RenderQuestion({
               {choices[1]}
             </button>
           </div>
-          <div className="col d-flex justify-content-center position-relative">
-            <div className="mx-md-3 mx-lg-5 my-auto pe-2 position-absolute top-50 end-0 translate-middle fs-3 text-white">
-              {currentAnswer === choices[2] ? (
-                <BsCheck />
-              ) : clickedChoice === choices[2] ? (
-                <BsX />
-              ) : (
-                ""
-              )}
-            </div>
+          <div className="col d-flex justify-content-center">
             <button
               type="button"
               className={`btn btn-warning ${
@@ -93,16 +73,7 @@ export default function RenderQuestion({
               {choices[2]}
             </button>
           </div>
-          <div className="col d-flex justify-content-center position-relative">
-            <div className="mx-md-3 mx-lg-5 my-auto pe-2 position-absolute top-50 end-0 translate-middle fs-3 text-white">
-              {currentAnswer === choices[3] ? (
-                <BsCheck />
-              ) : clickedChoice === choices[3] ? (
-                <BsX />
-              ) : (
-                ""
-              )}
-            </div>
+          <div className="col d-flex justify-content-center">
             <button
               type="button"
               className={`btn btn-warning ${

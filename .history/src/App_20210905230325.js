@@ -42,13 +42,16 @@ function App() {
         countdown.current = setInterval(() => {
           setCount((prevCount) => prevCount - 1);
         }, 1000);
-      } 
+      } else {
+        setChoiceBtnDisable(true);
+        setNextBtnDisable(false);
+      }
     }
 
     return () => {
       clearTimeout(timerRef.current);
       clearInterval(countdown.current);
-    }
+    };
   });
 
   function pressStart() {

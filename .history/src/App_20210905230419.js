@@ -48,7 +48,7 @@ function App() {
     return () => {
       clearTimeout(timerRef.current);
       clearInterval(countdown.current);
-    }
+    };git
   });
 
   function pressStart() {

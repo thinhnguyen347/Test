@@ -28,7 +28,7 @@ function App() {
   const timerRef = useRef();
   const countdown = useRef();
 
-  // eslint-disable-next-line
+  // eslint-disable-next-linen
   useEffect(() => {
     if (questionPageShow) {
       timerRef.current = setTimeout(() => {

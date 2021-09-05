@@ -28,7 +28,6 @@ function App() {
   const timerRef = useRef();
   const countdown = useRef();
 
-  // eslint-disable-next-line
   useEffect(() => {
     if (questionPageShow) {
       timerRef.current = setTimeout(() => {
@@ -44,6 +43,7 @@ function App() {
           setCount((prevCount) => prevCount - 1);
         }, 1000);
       } else {
+        // eslint-disable-next-line
         setChoiceBtnDisable(true);
         setNextBtnDisable(false);
       }

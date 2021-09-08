@@ -45,7 +45,9 @@ function App() {
       }
     }
 
-    if(choiceBtnDisable) clearInterval(countdown.current);
+    function clear(){
+      
+    }
 
     return () => {
       clearTimeout(timerRef.current);
@@ -71,6 +73,9 @@ function App() {
 
     let current_answer = quiz[currentQuestionNumber].ans;
     let choice = e.target.value;
+
+    //clearTimeout(timerRef.current);
+    countdown.current = clearInterval(countdown.current);
 
     if (choice === current_answer) {
       correctSound.play();

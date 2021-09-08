@@ -45,12 +45,12 @@ function App() {
       }
     }
 
-    if(choiceBtnDisable) clearInterval(countdown.current);
-
-    return () => {
+    function clearTime(){
       clearTimeout(timerRef.current);
       clearInterval(countdown.current);
-    };
+    }
+
+    return clearTime;
   });
 
   function pressStart() {
@@ -71,6 +71,9 @@ function App() {
 
     let current_answer = quiz[currentQuestionNumber].ans;
     let choice = e.target.value;
+
+    //clearTimeout(timerRef.current);
+    clearTime();
 
     if (choice === current_answer) {
       correctSound.play();

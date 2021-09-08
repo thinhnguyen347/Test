@@ -45,7 +45,8 @@ function App() {
       }
     }
 
-    if(choiceBtnDisable) clearInterval(countdown.current);
+    choiceBtnDisable
+
 
     return () => {
       clearTimeout(timerRef.current);

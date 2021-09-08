@@ -42,15 +42,13 @@ function App() {
         countdown.current = setInterval(() => {
           setCount((prevCount) => prevCount - 1);
         }, 1000);
-      }
+      } 
     }
-
-    if(choiceBtnDisable) clearInterval(countdown.current);
 
     return () => {
       clearTimeout(timerRef.current);
       clearInterval(countdown.current);
-    };
+    }
   });
 
   function pressStart() {
@@ -71,6 +69,9 @@ function App() {
 
     let current_answer = quiz[currentQuestionNumber].ans;
     let choice = e.target.value;
+
+    clearTimeout(timerRef.current);
+      clearInterval(countdown.current);
 
     if (choice === current_answer) {
       correctSound.play();
